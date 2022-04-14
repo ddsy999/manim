@@ -47,9 +47,13 @@ from manim import *
 
 
 class ArgMinExample(Scene , Statistics):
+    
+    def __init__(self):
+        super().__init__()
+        
     def construct(self):
         ax = Axes(
-            x_range=[0, 10], y_range=[0, 100, 10], axis_config={"include_tip": False}
+            x_range=[-10, 10], y_range=[0, 1, 0.1], axis_config={"include_tip": False}
         )
         labels = ax.get_axis_labels(x_label="x", y_label="f(x)")
 
@@ -58,7 +62,9 @@ class ArgMinExample(Scene , Statistics):
         def func(x):
             return 2 * (x - 5) ** 2
         
-        graph = ax.plot(super().stat2, color=MAROON)
+        self.mean = 0
+        self.sigma = 1
+        graph = ax.plot(super().Normal1D, color=MAROON)
 
         initial_point = [ax.coords_to_point(t.get_value(), func(t.get_value()))]
         dot = Dot(point=initial_point)
