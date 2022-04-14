@@ -1,5 +1,10 @@
-# mp4
+# 
 *.mp4
+*.aux
+*.dvi
+*.svg
+*.tex
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
